@@ -11,6 +11,7 @@
 #######################################
 import random
 import json
+import codecs
 
 #######################################
 # Class to generate/simulate Live Tweets
@@ -22,7 +23,7 @@ class Tweet:
     
     # Method to Load Tweets
     def loadTweets(self):
-        with open(self.inputFile) as f:
+        with codecs.open(self.inputFile,'r','UTF-8') as f:
             data = json.load(f)
             return data
     
@@ -31,7 +32,7 @@ class Tweet:
         tweets = self.loadTweets()
         index = random.randint(0,99)
         msg = tweets['tweets'][index]['tweet']
-        return msg.encode("utf-8")
+        return msg
     
     # Method for White-Box-Testing
     def testTweetMsg(self):
