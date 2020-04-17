@@ -100,6 +100,27 @@ To test the software, execute the following test python script from the command 
 $ python test.py
 ```
 
+### Live Stream Simulator
+
+In order to simulate the live streaming data (in this case the Live Tweets), the tweets were manually captured and copied into the JSON file in the following format.
+
+```
+{
+    "tweets": [
+        {
+            "time": "1587069929",
+            "tweet": "Wow! My wife, a healthcare worker, ordered scrubs from @MarksCanada and they included this lovely note."
+        },
+        {
+            "time": "1587069930",
+            "tweet": "I know people are scared that giving Doug Ford too much credit during #Covid19Ontario could lead to his reelection. But on a more optimistic note - maybe he'll enjoy people not thinking he's a dick so much, he'll do the decent thing more often even when this is over? #onpoli"
+        }
+    ]
+}
+
+```
+Next, the live data loading API uses the random library to randomly pick one of the tweet from the input JSON file. This randomly picked tweet is then fed to the Sentiment Analysis module for further processing. Finally, the Sentiment Scores of the tweet are shown as histogram in the web browser to end user.
+
 ### References and Credits:
 
 The author would like to thank and give credits to the original authors/owners/developers/team of VADER, HighCharts and Bootstrap.
